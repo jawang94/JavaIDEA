@@ -9,7 +9,7 @@
     <title>Hello Human</title>
 </head>
 <body>
-    <h2>Welcome <c:out value="${name}"/>!</h2>
+    <h2>Welcome <c:out value="${first_name}"/> <c:out value="${last_name}"/>!</h2>
     <h3>Welcome to SpringBoot!</h3>
 </body>
 </html>
