@@ -7,8 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Date</title>
-    <script src="jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/date.js"></script>
+
 </head>
 <body>
     <h1>Date:</h1>

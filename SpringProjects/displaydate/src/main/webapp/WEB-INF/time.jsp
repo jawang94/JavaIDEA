@@ -6,10 +6,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello Human</title>
+    <title>Time</title>
+
 </head>
 <body>
-    <h1>Date:</h1>
+    <h1>Time:</h1>
     <h2>${formattedDate}</h2>
     <input type="hidden" id="date" value="${formattedDate}">
 </body>
