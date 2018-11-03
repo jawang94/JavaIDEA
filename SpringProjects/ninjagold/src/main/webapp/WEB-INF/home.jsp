@@ -55,6 +55,9 @@
         <h4>Activities:</h4>
         <p>${history}</p>
     </div>
+    <form method="post" action="/reset">
+        <button type="submit" class="submit">Reset</button>
+    </form>
 </div>
 </body>
 </html>

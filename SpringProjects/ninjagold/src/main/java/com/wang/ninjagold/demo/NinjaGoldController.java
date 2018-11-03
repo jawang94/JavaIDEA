@@ -76,4 +76,12 @@ public class NinjaGoldController {
         }
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/reset", method = RequestMethod.POST)
+    public String reset(HttpSession session) {
+        Integer reset = (Integer) session.getAttribute("total");
+        reset = 0;
+        session.setAttribute("total", reset);
+        return "redirect:/";
+    }
 }
