@@ -1,6 +1,7 @@
 package com.wang.mvc.demo.models;
 
 import java.util.Date;
+import java.util.HashMap;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -31,6 +32,7 @@ public class Book {
     private Date updatedAt;
     public Book() {
     }
+
     public Book(String title, String desc, String lang, int pages) {
         this.title = title;
         this.description = desc;
@@ -45,11 +47,34 @@ public class Book {
         this.numberOfPages = pages;
     }
 
+    public HashMap<String, String> showBook() {
+        HashMap<String, String> bookMap = new HashMap<String, String>();
+        bookMap.put("title", this.title);
+        bookMap.put("description", this.description);
+        bookMap.put("language", this.language);
+        bookMap.put("pages", this.numberOfPages.toString());
+        return bookMap;
+    }
+
+    public String returnTitle() {
+        return this.title;
+    }
+    public String returnDesc() {
+        return this.description;
+    }
+    public String returnLang() {
+        return this.language;
+    }
+    public Integer returnPages() {
+        return this.numberOfPages;
+    }
+
+
     public Long returnId() {
         return this.id;
     }
 
-    // other getters and setters removed for brevity
+
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();

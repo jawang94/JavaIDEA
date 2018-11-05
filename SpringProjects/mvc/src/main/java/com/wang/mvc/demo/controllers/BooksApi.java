@@ -3,7 +3,11 @@ package com.wang.mvc.demo.controllers;
 import com.wang.mvc.demo.models.Book;
 import com.wang.mvc.demo.services.BookService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class BooksApi {
@@ -12,7 +16,7 @@ public class BooksApi {
         this.bookService = bookService;
     }
     @RequestMapping(value = "/api/books", method = RequestMethod.GET)
-    public List<Book> index() {
+    public ArrayList<HashMap<String, String>> index() {
         return bookService.allBooks();
     }
 
