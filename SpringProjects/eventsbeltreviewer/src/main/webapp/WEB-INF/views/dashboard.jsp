@@ -46,11 +46,13 @@
                 <c:when test="${event.hostId == user.id}">
                     <td><a href="/edit/${event.id}">Edit</a> <a href="/cancel/${event.id}">Cancel</a></td>
                 </c:when>
-                <c:when test="${not fn:contains(event.users, user)}">
-                    <td><p>Joined</p></td>
-                </c:when>
                 <c:otherwise>
-                    <td><a href="/join/${event.id}/${user.id}">Join</a></td>
+                    <c:when test="${not fn:contains(event.users, user)}">
+                        <td><p>Joined</p></td>
+                    </c:when>
+                    <c:otherwise>
+                        <td><a href="/join/${event.id}/${user.id}">Join</a></td>
+                    </c:otherwise>
                 </c:otherwise>
             </c:choose>
         </tr>
@@ -81,18 +83,16 @@
                     <td><a href="/edit/${event.id}">Edit</a> <a href="/cancel/${event.id}">Cancel</a></td>
                 </c:when>
                 <c:otherwise>
-                    <td>
-                        <a href="/join/${event.id}/${user.id}">Join</a>
-                        <c:forEach var="item" items="${event.users}">
-                            <c:if test="${item eq user}">
-                                <p>Already joined this event</p>
-                            </c:if>
-                        </c:forEach>
-                    </td>
-
+                    <c:choose>
+                        <c:when test="${not fn:contains(event.users, user)}">
+                            <td><p>Joined</p></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><a href="/join/${event.id}/${user.id}">Join</a></td>
+                        </c:otherwise>
+                    </c:choose>
                 </c:otherwise>
             </c:choose>
-
         </tr>
     </c:forEach>
     </tbody>
